@@ -1,0 +1,20 @@
+ul {
+    list-style: none;
+}
+
+li .search-item {
+    color: red !important;
+}
+
+.item-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.img-holder {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+}

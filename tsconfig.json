@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "module": "es6",
+    "target": "es5",
+    "allowJs": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": [
+      "./node_modules/@types/"
+    ],
+    "genDir": ".",
+    "entryModule": "src/app.module#AppModule"
+  },
+  "compileOnSave": true,
+  "exclude": [
+    "node_modules",
+    "**/*-aot.ts",
+    "universal/*"
+  ]
+}
