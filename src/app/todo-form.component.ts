@@ -5,9 +5,10 @@ import {Component, HostListener} from '@angular/core';
     template: `
         <div>
             <form (submit)="addTodo($event, todoInput)">
+                <span>Add todo</span>
+                <br/>
                 <input type="text" name="todo" #todoInput/>
             </form>
-            <button (click)="addTodo($event, todoInput)">Submit</button>
             <ul>
                 <li *ngFor="let todo of todoList">
                     {{ todo.title }}

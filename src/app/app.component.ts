@@ -25,8 +25,8 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    onReset($event: Event) {
-        console.log($event);
+    onReset() {
+        this.total = 0;
     }
 
 }

@@ -1,4 +1,4 @@
-import {Component, HostBinding, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {Scheduler} from 'rxjs/Rx';
 import {Snake} from './game.object';
@@ -17,11 +17,12 @@ import 'rxjs/add/operator/scan';
     selector: 'g[snake]',
     template: `
         <svg xmlns="http://www.w3.org/2000/svg">
-            <rect *ngFor="let dot of snake.dots"
+            <rect *ngFor="let dot of snake.dots; let i = index;"
                   [attr.x]="dot.x"
                   [attr.y]="dot.y"
                   [attr.width]="dot.width"
-                  [attr.height]="dot.height"/>
+                  [attr.height]="dot.height" 
+                  [ngStyle]="getDotStyle(i)"/>
         </svg>
     `,
 })
@@ -31,6 +32,12 @@ export class SnakeComponent implements OnInit {
 
     constructor() {
         this.snake = new Snake();
+    }
+
+    getDotStyle(index: number) {
+        return {
+            fill: index === 0 ? 'blue' : 'black',
+        };
     }
 
     ngOnInit() {
@@ -64,7 +71,7 @@ export class SnakeComponent implements OnInit {
                 this.snake.update(cur.dx, cur.dy);
                 return this.snake;
             }, this.snake)
-            // .subscribe(console.log);
+            .subscribe(console.log);
     }
 
 }
