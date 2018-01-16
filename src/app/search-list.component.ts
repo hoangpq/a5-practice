@@ -1,3 +1,5 @@
+import {Emitter} from './services/Emitter';
+
 declare var require: any;
 
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
@@ -16,8 +18,11 @@ import 'rxjs/add/operator/switchMap';
             <ng-content></ng-content>
             <ul>
                 <search-item 
-                        *ngFor="let item of items; let i = index;" 
-                        [attr.data-index]="i" [text]="item" [index]="i">
+                        *ngFor="let item of items; let i = index;"
+                        (onItemSelect)="onItemSelect($event)"
+                        [attr.data-index]="i"
+                        [text]="item"
+                        [index]="i">
                 </search-item>
             </ul>
         </div>
@@ -31,11 +36,19 @@ export class SearchListComponent implements OnInit {
 
     items: Array<string> = [];
 
-    constructor(private searchService: SearchService) {}
+    constructor(private searchService: SearchService,
+                private emitter: Emitter) {
+
+    }
 
     onClearList($event: Event) {
         this.items = [];
         this.onReset.emit($event);
+        this.emitter.emit({'value': 'hello'});
+    }
+
+    onItemSelect(title: string) {
+        console.log(title);
     }
 
     ngOnInit(): void {

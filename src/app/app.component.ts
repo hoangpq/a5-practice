@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subject} from 'rxjs/Subject'
 
 import '../assets/css/styles.css';
+import {Emitter} from './services/Emitter';
 
 @Component({
     selector: 'app',
@@ -21,6 +22,12 @@ import '../assets/css/styles.css';
 export class AppComponent implements OnInit {
     term$: Subject<string> = new Subject();
     total: number = 0;
+
+    constructor(private emitter: Emitter) {
+        this.emitter.observer.subscribe(
+            console.log,
+        );
+    }
 
     ngOnInit(): void {
     }

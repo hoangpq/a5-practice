@@ -3,7 +3,7 @@ ul {
 }
 
 li .search-item {
-    color: red !important;
+    color: red;
 }
 
 .item-wrapper {

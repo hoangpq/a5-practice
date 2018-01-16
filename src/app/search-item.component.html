@@ -1,8 +1,13 @@
 <li>
-    <div class="item-wrapper">
+    <div class="item-wrapper"
+         [class.selected]="false"
+         [class.active]="true"
+         (click)="onItemSelect.emit(text)">
         <div>
             <span>{{ index + 1 }}</span>
-            <span class="search-item">{{ text }}</span>
+            <a class="search-item" [style.color]="'green'">
+                {{ text }}
+            </a>
         </div>
         <div class="img-holder">
             <img [src]="imgSrc" alt="Loading..."/>

@@ -1,5 +1,5 @@
 declare var require: any;
-import {Component, Input, OnChanges, OnDestroy, SimpleChanges} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, Output, SimpleChanges} from '@angular/core';
 import {SearchService} from './search/search.service';
 
 @Component({
@@ -10,6 +10,8 @@ import {SearchService} from './search/search.service';
 export class SearchItemComponent implements OnChanges, OnDestroy {
     @Input() index: number;
     @Input() text: string;
+    @Output() onItemSelect = new EventEmitter<any>();
+
     imgSrc: string = require('../assets/images/loading.gif'); // default
     noImage: string = require('../assets/images/no_image.png'); // no image
 

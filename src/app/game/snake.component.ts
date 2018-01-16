@@ -21,7 +21,7 @@ import 'rxjs/add/operator/scan';
                   [attr.x]="dot.x"
                   [attr.y]="dot.y"
                   [attr.width]="dot.width"
-                  [attr.height]="dot.height" 
+                  [attr.height]="dot.height"
                   [ngStyle]="getDotStyle(i)"/>
         </svg>
     `,
